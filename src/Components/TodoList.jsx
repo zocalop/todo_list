@@ -11,6 +11,7 @@ const TodoList = () => {
       setHeadingInput('');
     }
   };
+  const handleAddList = () => 
 
   return (
     <>
@@ -33,6 +34,15 @@ const TodoList = () => {
             <div className="heading_todo">
               <h3>{todo.heading}</h3>
               <button className="delete-button-heading" onClick={() => handleDeleteTodo(index)}>Delete Heading </button>
+            </div>
+            <div className="add_list">
+              <input
+                type="text"
+                className="list-input"
+                placeholder="Add List"
+                value={listInputs[index] || ''}
+                onChange={(e) => handleListInputChange(index, e.target.value)}/>
+              <button className="add-list-button" onClick={() => handleAddList(index)}>Add List</button>
             </div>
           </div>
         ))}
