@@ -5,6 +5,7 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [headingInput, setHeadingInput] = useState('');
   const [listInputs, setListInputs] = useState({});  
+
   const handleAddTodo = () => {
     if (headingInput.trim() !== '') {
       setTodos([...todos, { heading: headingInput, lists: [] }]);
@@ -21,6 +22,11 @@ const TodoList = () => {
   };       
   const handleListInputChange = (index, value) => {
     setListInputs({ ...listInputs, [index]: value});
+  };
+  const handleDeleteTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
   };
 
   return (
